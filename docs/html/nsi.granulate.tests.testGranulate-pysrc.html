@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>nsi.granulate.tests.testGranulate</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="nsi.granulate-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;nsi ::
+        <a href="nsi.granulate-module.html">Package&nbsp;granulate</a> ::
+        <a href="nsi.granulate.tests-module.html">Package&nbsp;tests</a> ::
+        Module&nbsp;testGranulate
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="nsi.granulate.tests.testGranulate-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="nsi.granulate.tests.testGranulate-module.html">Module nsi.granulate.tests.testGranulate</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment">#!/usr/bin/python</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">##############################################################################</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Copyright (c) 2007 ISrg (NSI, CEFETCAMPOS, BRAZIL) and Contributors. </tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                                                         All Rights Reserved.</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#                              Ronaldo Amaral Santos &lt;ronaldinho.as@gmail.com&gt; </tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># WARNING: This program as such is intended to be used by professional</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># programmers who take the whole responsability of assessing all potential</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># consequences resulting from its eventual inadequacies and bugs</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># End users who are looking for a ready-to-use solution with commercial</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># garantees and support are strongly adviced to contract a Free Software</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Service Company</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># This program is Free Software; you can redistribute it and/or</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># modify it under the terms of the GNU General Public License</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># as published by the Free Software Foundation; either version 2</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># of the License, or (at your option) any later version.</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># This program is distributed in the hope that it will be useful,</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># but WITHOUT ANY WARRANTY; without even the implied warranty of</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># GNU General Public License for more details.</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># You should have received a copy of the GNU General Public License</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># along with this program; if not, write to the Free Software</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">##############################################################################</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-name">__author__</tt> <tt class="py-op">=</tt> <tt class="py-docstring">"""Ronaldo Amaral Santos &lt;ronaldinho.as@gmail.com&gt;"""</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-name">__docformat__</tt> <tt class="py-op">=</tt> <tt class="py-string">'plaintext'</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-string">"""</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-string">    Test methods Granulate</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt class="py-string">"""</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">sys</tt><tt class="py-op">,</tt> <tt class="py-name">unittest</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">re</tt><tt class="py-op">,</tt> <tt class="py-name">time</tt><tt class="py-op">,</tt><tt class="py-name">os</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">nsi</tt><tt class="py-op">.</tt><tt id="link-0" class="py-name" targets="Package nsi.granulate=nsi.granulate-module.html"><a title="nsi.granulate" class="py-name" href="#" onclick="return doclink('link-0', 'granulate', 'link-0');">granulate</a></tt> <tt class="py-keyword">import</tt> <tt id="link-1" class="py-name" targets="Class nsi.granulate.Granulate'.Granulate=nsi.granulate.Granulate%27.Granulate-class.html"><a title="nsi.granulate.Granulate'.Granulate" class="py-name" href="#" onclick="return doclink('link-1', 'Granulate', 'link-1');">Granulate</a></tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"><tt id="link-2" class="py-name" targets="Variable nsi.granulate.tests.testGranulate.filePath=nsi.granulate.tests.testGranulate-module.html#filePath,Variable nsi.granulate.tests.testGranulateDOC.filePath=nsi.granulate.tests.testGranulateDOC-module.html#filePath,Variable nsi.granulate.tests.testGranulateOffice.filePath=nsi.granulate.tests.testGranulateOffice-module.html#filePath,Variable nsi.granulate.tests.testGranulatePDF.filePath=nsi.granulate.tests.testGranulatePDF-module.html#filePath"><a title="nsi.granulate.tests.testGranulate.filePath
+nsi.granulate.tests.testGranulateDOC.filePath
+nsi.granulate.tests.testGranulateOffice.filePath
+nsi.granulate.tests.testGranulatePDF.filePath" class="py-name" href="#" onclick="return doclink('link-2', 'filePath', 'link-2');">filePath</a></tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">dirname</tt><tt class="py-op">(</tt><tt class="py-name">__file__</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-string">'data'</tt><tt class="py-op">,</tt> <tt class="py-string">'test.odt'</tt><tt class="py-op">)</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"><tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">    <tt id="link-3" class="py-name" targets="Variable nsi.granulate.tests.testGranulate.filedata=nsi.granulate.tests.testGranulate-module.html#filedata,Variable nsi.granulate.tests.testGranulateDOC.filedata=nsi.granulate.tests.testGranulateDOC-module.html#filedata,Variable nsi.granulate.tests.testGranulateOffice.filedata=nsi.granulate.tests.testGranulateOffice-module.html#filedata,Variable nsi.granulate.tests.testGranulatePDF.filedata=nsi.granulate.tests.testGranulatePDF-module.html#filedata"><a title="nsi.granulate.tests.testGranulate.filedata
+nsi.granulate.tests.testGranulateDOC.filedata
+nsi.granulate.tests.testGranulateOffice.filedata
+nsi.granulate.tests.testGranulatePDF.filedata" class="py-name" href="#" onclick="return doclink('link-3', 'filedata', 'link-3');">filedata</a></tt> <tt class="py-op">=</tt> <tt class="py-name">open</tt><tt class="py-op">(</tt><tt id="link-4" class="py-name"><a title="nsi.granulate.tests.testGranulate.filePath
+nsi.granulate.tests.testGranulateDOC.filePath
+nsi.granulate.tests.testGranulateOffice.filePath
+nsi.granulate.tests.testGranulatePDF.filePath" class="py-name" href="#" onclick="return doclink('link-4', 'filePath', 'link-2');">filePath</a></tt><tt class="py-op">,</tt> <tt class="py-string">'rb'</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">read</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"><tt class="py-keyword">except</tt> <tt class="py-name">IOError</tt><tt class="py-op">:</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">    <tt class="py-keyword">print</tt> <tt class="py-string">"File not found"</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">    <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">exit</tt><tt class="py-op">(</tt><tt class="py-number">1</tt><tt class="py-op">)</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line"> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line"> </tt>
+<a name="TestGranulate"></a><div id="TestGranulate-def"><a name="L52"></a><tt class="py-lineno"> 52</tt> <a class="py-toggle" href="#" id="TestGranulate-toggle" onclick="return toggle('TestGranulate');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="nsi.granulate.tests.testGranulate.TestGranulate-class.html">TestGranulate</a><tt class="py-op">(</tt><tt class="py-base-class">unittest</tt><tt class="py-op">.</tt><tt class="py-base-class">TestCase</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TestGranulate-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="TestGranulate-expanded"><a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">   </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line"> </tt>
+<a name="TestGranulate.testGranulateDocument"></a><div id="TestGranulate.testGranulateDocument-def"><a name="L55"></a><tt class="py-lineno"> 55</tt> <a class="py-toggle" href="#" id="TestGranulate.testGranulateDocument-toggle" onclick="return toggle('TestGranulate.testGranulateDocument');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="nsi.granulate.tests.testGranulate.TestGranulate-class.html#testGranulateDocument">testGranulateDocument</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TestGranulate.testGranulateDocument-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TestGranulate.testGranulateDocument-expanded"><a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line"><tt class="py-docstring">            This test passes arguments the old way.</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">        <tt class="py-name">t1</tt> <tt class="py-op">=</tt> <tt class="py-name">time</tt><tt class="py-op">.</tt><tt class="py-name">time</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">        <tt class="py-name">resultDict</tt> <tt class="py-op">=</tt> <tt id="link-5" class="py-name"><a title="nsi.granulate.Granulate'.Granulate" class="py-name" href="#" onclick="return doclink('link-5', 'Granulate', 'link-1');">Granulate</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Method nsi.granulate.Granulate'.Granulate.granulateDocument()=nsi.granulate.Granulate%27.Granulate-class.html#granulateDocument,Method nsi.granulate.GranulateOffice'.GranulateOffice.granulateDocument()=nsi.granulate.GranulateOffice%27.GranulateOffice-class.html#granulateDocument,Method nsi.granulate.GranulatePDF'.GranulatePDF.granulateDocument()=nsi.granulate.GranulatePDF%27.GranulatePDF-class.html#granulateDocument"><a title="nsi.granulate.Granulate'.Granulate.granulateDocument
+nsi.granulate.GranulateOffice'.GranulateOffice.granulateDocument
+nsi.granulate.GranulatePDF'.GranulatePDF.granulateDocument" class="py-name" href="#" onclick="return doclink('link-6', 'granulateDocument', 'link-6');">granulateDocument</a></tt><tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">=</tt><tt class="py-string">'teste.odt'</tt><tt class="py-op">,</tt> <tt id="link-7" class="py-name" targets="Package nsi.granulate.tests.data=nsi.granulate.tests.data-module.html"><a title="nsi.granulate.tests.data" class="py-name" href="#" onclick="return doclink('link-7', 'data', 'link-7');">data</a></tt><tt class="py-op">=</tt><tt id="link-8" class="py-name"><a title="nsi.granulate.tests.testGranulate.filedata
+nsi.granulate.tests.testGranulateDOC.filedata
+nsi.granulate.tests.testGranulateOffice.filedata
+nsi.granulate.tests.testGranulatePDF.filedata" class="py-name" href="#" onclick="return doclink('link-8', 'filedata', 'link-3');">filedata</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">assertEquals</tt><tt class="py-op">(</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">resultDict</tt><tt class="py-op">[</tt><tt class="py-string">'image_list'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-number">26</tt><tt class="py-op">)</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">assertEquals</tt><tt class="py-op">(</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">resultDict</tt><tt class="py-op">[</tt><tt class="py-string">'table_list'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-number">1</tt><tt class="py-op">)</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-op">(</tt><tt class="py-name">time</tt><tt class="py-op">.</tt><tt class="py-name">time</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">-</tt><tt class="py-name">t1</tt><tt class="py-op">)</tt><tt class="py-op">/</tt><tt class="py-op">(</tt><tt class="py-number">24</tt><tt class="py-op">*</tt><tt class="py-number">3600</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line"> </tt>
+<a name="TestGranulate.testGetTableDocumentList"></a><div id="TestGranulate.testGetTableDocumentList-def"><a name="L65"></a><tt class="py-lineno"> 65</tt> <a class="py-toggle" href="#" id="TestGranulate.testGetTableDocumentList-toggle" onclick="return toggle('TestGranulate.testGetTableDocumentList');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="nsi.granulate.tests.testGranulate.TestGranulate-class.html#testGetTableDocumentList">testGetTableDocumentList</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TestGranulate.testGetTableDocumentList-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TestGranulate.testGetTableDocumentList-expanded"><a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line"><tt class="py-docstring">            This test passes arguments the old way.</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">        <tt class="py-name">t1</tt> <tt class="py-op">=</tt> <tt class="py-name">time</tt><tt class="py-op">.</tt><tt class="py-name">time</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">        <tt class="py-name">resultList</tt> <tt class="py-op">=</tt> <tt id="link-9" class="py-name"><a title="nsi.granulate.Granulate'.Granulate" class="py-name" href="#" onclick="return doclink('link-9', 'Granulate', 'link-1');">Granulate</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Method nsi.granulate.Granulate'.Granulate.getTableDocumentList()=nsi.granulate.Granulate%27.Granulate-class.html#getTableDocumentList,Method nsi.granulate.GranulateOffice'.GranulateOffice.getTableDocumentList()=nsi.granulate.GranulateOffice%27.GranulateOffice-class.html#getTableDocumentList,Method nsi.granulate.GranulatePDF'.GranulatePDF.getTableDocumentList()=nsi.granulate.GranulatePDF%27.GranulatePDF-class.html#getTableDocumentList"><a title="nsi.granulate.Granulate'.Granulate.getTableDocumentList
+nsi.granulate.GranulateOffice'.GranulateOffice.getTableDocumentList
+nsi.granulate.GranulatePDF'.GranulatePDF.getTableDocumentList" class="py-name" href="#" onclick="return doclink('link-10', 'getTableDocumentList', 'link-10');">getTableDocumentList</a></tt><tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">=</tt><tt class="py-string">'teste.odt'</tt><tt class="py-op">,</tt> <tt id="link-11" class="py-name"><a title="nsi.granulate.tests.data" class="py-name" href="#" onclick="return doclink('link-11', 'data', 'link-7');">data</a></tt><tt class="py-op">=</tt><tt id="link-12" class="py-name"><a title="nsi.granulate.tests.testGranulate.filedata
+nsi.granulate.tests.testGranulateDOC.filedata
+nsi.granulate.tests.testGranulateOffice.filedata
+nsi.granulate.tests.testGranulatePDF.filedata" class="py-name" href="#" onclick="return doclink('link-12', 'filedata', 'link-3');">filedata</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">assertEquals</tt><tt class="py-op">(</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">resultList</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-number">1</tt><tt class="py-op">)</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-op">(</tt><tt class="py-name">time</tt><tt class="py-op">.</tt><tt class="py-name">time</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">-</tt><tt class="py-name">t1</tt><tt class="py-op">)</tt><tt class="py-op">/</tt><tt class="py-op">(</tt><tt class="py-number">24</tt><tt class="py-op">*</tt><tt class="py-number">3600</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line"> </tt>
+<a name="TestGranulate.testGetImageDocumentList"></a><div id="TestGranulate.testGetImageDocumentList-def"><a name="L74"></a><tt class="py-lineno"> 74</tt> <a class="py-toggle" href="#" id="TestGranulate.testGetImageDocumentList-toggle" onclick="return toggle('TestGranulate.testGetImageDocumentList');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="nsi.granulate.tests.testGranulate.TestGranulate-class.html#testGetImageDocumentList">testGetImageDocumentList</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TestGranulate.testGetImageDocumentList-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TestGranulate.testGetImageDocumentList-expanded"><a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line"><tt class="py-docstring">            This test passes arguments the old way.</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">        <tt class="py-name">t1</tt> <tt class="py-op">=</tt> <tt class="py-name">time</tt><tt class="py-op">.</tt><tt class="py-name">time</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">        <tt class="py-name">resultList</tt> <tt class="py-op">=</tt> <tt id="link-13" class="py-name"><a title="nsi.granulate.Granulate'.Granulate" class="py-name" href="#" onclick="return doclink('link-13', 'Granulate', 'link-1');">Granulate</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Method nsi.granulate.Granulate'.Granulate.getImageDocumentList()=nsi.granulate.Granulate%27.Granulate-class.html#getImageDocumentList,Method nsi.granulate.GranulateOffice'.GranulateOffice.getImageDocumentList()=nsi.granulate.GranulateOffice%27.GranulateOffice-class.html#getImageDocumentList,Method nsi.granulate.GranulatePDF'.GranulatePDF.getImageDocumentList()=nsi.granulate.GranulatePDF%27.GranulatePDF-class.html#getImageDocumentList"><a title="nsi.granulate.Granulate'.Granulate.getImageDocumentList
+nsi.granulate.GranulateOffice'.GranulateOffice.getImageDocumentList
+nsi.granulate.GranulatePDF'.GranulatePDF.getImageDocumentList" class="py-name" href="#" onclick="return doclink('link-14', 'getImageDocumentList', 'link-14');">getImageDocumentList</a></tt><tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">=</tt><tt class="py-string">'teste.odt'</tt><tt class="py-op">,</tt> <tt id="link-15" class="py-name"><a title="nsi.granulate.tests.data" class="py-name" href="#" onclick="return doclink('link-15', 'data', 'link-7');">data</a></tt><tt class="py-op">=</tt><tt id="link-16" class="py-name"><a title="nsi.granulate.tests.testGranulate.filedata
+nsi.granulate.tests.testGranulateDOC.filedata
+nsi.granulate.tests.testGranulateOffice.filedata
+nsi.granulate.tests.testGranulatePDF.filedata" class="py-name" href="#" onclick="return doclink('link-16', 'filedata', 'link-3');">filedata</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">assertEquals</tt><tt class="py-op">(</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">resultList</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-number">26</tt><tt class="py-op">)</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-op">(</tt><tt class="py-name">time</tt><tt class="py-op">.</tt><tt class="py-name">time</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">-</tt><tt class="py-name">t1</tt><tt class="py-op">)</tt><tt class="py-op">/</tt><tt class="py-op">(</tt><tt class="py-number">24</tt><tt class="py-op">*</tt><tt class="py-number">3600</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"> </tt>
+<a name="TestGranulate.testGetThumbnailsDocument"></a><div id="TestGranulate.testGetThumbnailsDocument-def"><a name="L83"></a><tt class="py-lineno"> 83</tt> <a class="py-toggle" href="#" id="TestGranulate.testGetThumbnailsDocument-toggle" onclick="return toggle('TestGranulate.testGetThumbnailsDocument');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="nsi.granulate.tests.testGranulate.TestGranulate-class.html#testGetThumbnailsDocument">testGetThumbnailsDocument</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TestGranulate.testGetThumbnailsDocument-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TestGranulate.testGetThumbnailsDocument-expanded"><a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line"><tt class="py-docstring">            This test passes arguments the old way.</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">        <tt class="py-name">t1</tt> <tt class="py-op">=</tt> <tt class="py-name">time</tt><tt class="py-op">.</tt><tt class="py-name">time</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">        <tt class="py-name">result</tt> <tt class="py-op">=</tt> <tt id="link-17" class="py-name"><a title="nsi.granulate.Granulate'.Granulate" class="py-name" href="#" onclick="return doclink('link-17', 'Granulate', 'link-1');">Granulate</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name" targets="Method nsi.granulate.Granulate'.Granulate.getThumbnailsDocument()=nsi.granulate.Granulate%27.Granulate-class.html#getThumbnailsDocument,Method nsi.granulate.GranulateOffice'.GranulateOffice.getThumbnailsDocument()=nsi.granulate.GranulateOffice%27.GranulateOffice-class.html#getThumbnailsDocument"><a title="nsi.granulate.Granulate'.Granulate.getThumbnailsDocument
+nsi.granulate.GranulateOffice'.GranulateOffice.getThumbnailsDocument" class="py-name" href="#" onclick="return doclink('link-18', 'getThumbnailsDocument', 'link-18');">getThumbnailsDocument</a></tt><tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">=</tt><tt class="py-string">'teste.odt'</tt><tt class="py-op">,</tt> <tt id="link-19" class="py-name"><a title="nsi.granulate.tests.data" class="py-name" href="#" onclick="return doclink('link-19', 'data', 'link-7');">data</a></tt><tt class="py-op">=</tt><tt id="link-20" class="py-name"><a title="nsi.granulate.tests.testGranulate.filedata
+nsi.granulate.tests.testGranulateDOC.filedata
+nsi.granulate.tests.testGranulateOffice.filedata
+nsi.granulate.tests.testGranulatePDF.filedata" class="py-name" href="#" onclick="return doclink('link-20', 'filedata', 'link-3');">filedata</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">failUnless</tt><tt class="py-op">(</tt><tt class="py-name">result</tt> <tt class="py-keyword">is</tt> <tt class="py-keyword">not</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">        <tt class="py-comment">#self.assertEquals(resultDict['thumbnails'], is instance)</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-keyword">print</tt> <tt class="py-op">(</tt><tt class="py-name">time</tt><tt class="py-op">.</tt><tt class="py-name">time</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">-</tt><tt class="py-name">t1</tt><tt class="py-op">)</tt><tt class="py-op">/</tt><tt class="py-op">(</tt><tt class="py-number">24</tt><tt class="py-op">*</tt><tt class="py-number">3600</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"> </tt>
+<a name="TestGranulate.testGetSummaryDocument"></a><div id="TestGranulate.testGetSummaryDocument-def"><a name="L93"></a><tt class="py-lineno"> 93</tt> <a class="py-toggle" href="#" id="TestGranulate.testGetSummaryDocument-toggle" onclick="return toggle('TestGranulate.testGetSummaryDocument');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="nsi.granulate.tests.testGranulate.TestGranulate-class.html#testGetSummaryDocument">testGetSummaryDocument</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TestGranulate.testGetSummaryDocument-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TestGranulate.testGetSummaryDocument-expanded"><a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line"><tt class="py-docstring">            This test passes arguments the old way.</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">        <tt class="py-name">t1</tt> <tt class="py-op">=</tt> <tt class="py-name">time</tt><tt class="py-op">.</tt><tt class="py-name">time</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">        <tt class="py-name">resultList</tt> <tt class="py-op">=</tt> <tt id="link-21" class="py-name"><a title="nsi.granulate.Granulate'.Granulate" class="py-name" href="#" onclick="return doclink('link-21', 'Granulate', 'link-1');">Granulate</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name" targets="Method nsi.granulate.Granulate'.Granulate.getSummaryDocument()=nsi.granulate.Granulate%27.Granulate-class.html#getSummaryDocument,Method nsi.granulate.GranulateOffice'.GranulateOffice.getSummaryDocument()=nsi.granulate.GranulateOffice%27.GranulateOffice-class.html#getSummaryDocument"><a title="nsi.granulate.Granulate'.Granulate.getSummaryDocument
+nsi.granulate.GranulateOffice'.GranulateOffice.getSummaryDocument" class="py-name" href="#" onclick="return doclink('link-22', 'getSummaryDocument', 'link-22');">getSummaryDocument</a></tt><tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">=</tt><tt class="py-string">'teste.odt'</tt><tt class="py-op">,</tt> <tt id="link-23" class="py-name"><a title="nsi.granulate.tests.data" class="py-name" href="#" onclick="return doclink('link-23', 'data', 'link-7');">data</a></tt><tt class="py-op">=</tt><tt id="link-24" class="py-name"><a title="nsi.granulate.tests.testGranulate.filedata
+nsi.granulate.tests.testGranulateDOC.filedata
+nsi.granulate.tests.testGranulateOffice.filedata
+nsi.granulate.tests.testGranulatePDF.filedata" class="py-name" href="#" onclick="return doclink('link-24', 'filedata', 'link-3');">filedata</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">failUnless</tt><tt class="py-op">(</tt><tt class="py-name">resultList</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt>  </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">        <tt class="py-comment">#self.assertEquals(resultDict['summary'], None)</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-keyword">print</tt> <tt class="py-op">(</tt><tt class="py-name">time</tt><tt class="py-op">.</tt><tt class="py-name">time</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">-</tt><tt class="py-name">t1</tt><tt class="py-op">)</tt><tt class="py-op">/</tt><tt class="py-op">(</tt><tt class="py-number">24</tt><tt class="py-op">*</tt><tt class="py-number">3600</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">     </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">    <tt class="py-comment">#def testAllMethodsGranulateObj(self):</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#    """</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#        This test all methods.</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#    """</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#    t1 = time.time()</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#    #import pdb; pdb.set_trace()</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#    granObj = self.createInstanceGraOffice()</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#    self.failUnless(granObj is not None) </tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#    resultDict = granObj.granulateDocument()</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#    self.assertEquals(len(resultDict['image_list']), 26)</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#    self.assertEquals(len(resultDict['table_list']), 1)</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#    </tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#    resultDictTable = granObj.getTableDocumentList()</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#    self.assertEquals(len(resultDictTable['table_list']), 1)</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#    resultDictImage = granObj.getImageDocumentList()</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#    self.assertEquals(len(resultDictImage['image_list']), 26)</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment"># </tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#    resultDictThumbnails = granObj.getThumbnailsDocument()</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#    self.failUnless(resultDictThumbnails['thumbnails'] is not None)</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#   </tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#    resultDictSummary = granObj.getSummaryDocument()</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#    self.failUnless(resultDictSummary['summary'] is None) </tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#    print (time.time() -t1)/(24*3600)</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line"><tt class="py-comment"></tt>         </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line"> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt class="py-name">__name__</tt><tt class="py-op">==</tt><tt class="py-string">'__main__'</tt><tt class="py-op">:</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">    <tt id="link-25" class="py-name" targets="Package nsi.granulate.tests=nsi.granulate.tests-module.html"><a title="nsi.granulate.tests" class="py-name" href="#" onclick="return doclink('link-25', 'tests', 'link-25');">tests</a></tt><tt class="py-op">=</tt><tt class="py-op">(</tt><tt id="link-26" class="py-name" targets="Class nsi.granulate.tests.testGranulate.TestGranulate=nsi.granulate.tests.testGranulate.TestGranulate-class.html,Class nsi.granulate.tests.testGranulateDOC.TestGranulate=nsi.granulate.tests.testGranulateDOC.TestGranulate-class.html"><a title="nsi.granulate.tests.testGranulate.TestGranulate
+nsi.granulate.tests.testGranulateDOC.TestGranulate" class="py-name" href="#" onclick="return doclink('link-26', 'TestGranulate', 'link-26');">TestGranulate</a></tt><tt class="py-op">,</tt><tt class="py-op">)</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">t</tt> <tt class="py-keyword">in</tt> <tt id="link-27" class="py-name"><a title="nsi.granulate.tests" class="py-name" href="#" onclick="return doclink('link-27', 'tests', 'link-25');">tests</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line">        <tt class="py-name">suite</tt> <tt class="py-op">=</tt> <tt class="py-name">unittest</tt><tt class="py-op">.</tt><tt class="py-name">makeSuite</tt><tt class="py-op">(</tt><tt class="py-name">t</tt><tt class="py-op">)</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line">        <tt class="py-name">unittest</tt><tt class="py-op">.</tt><tt class="py-name">TextTestRunner</tt><tt class="py-op">(</tt><tt class="py-name">verbosity</tt><tt class="py-op">=</tt><tt class="py-number">2</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">run</tt><tt class="py-op">(</tt><tt class="py-name">suite</tt><tt class="py-op">)</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="nsi.granulate-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Jun  2 15:41:55 2016
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

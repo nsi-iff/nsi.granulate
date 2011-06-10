@@ -1,0 +1,43 @@
+Changelog
+=========
+
+0.9 - Release
+-------------
+* Caching de arquivos convertidos adicionado 
+
+0.8 - Release
+-------------
+* Adicionado suporte pra thumbnails de .docx e .pptx
+
+0.7.2 - Release
+---------------
+
+* Adicionado granularizacao de pptx
+
+0.7.1 - Release
+---------------
+
+* Adicionado testes para outros formatos de videos
+
+0.7 - Release
+-------------
+
+* Adicionado granularizacao de docx
+
+0.6 - Release
+-------------
+
+* Acrescentado algoritmo de descarte de imagens repetidas para arquivos PDF
+
+0.5 - Release
+-------------
+
+* Remove Dependencie pymedia and include Dependencie gstreamer
+
+0.1 - Unreleased
+----------------
+
+* Remove Dependencie ImageMagick
+
+* Initial release
+

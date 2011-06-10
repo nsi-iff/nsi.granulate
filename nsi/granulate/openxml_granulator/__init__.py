@@ -1,0 +1,1 @@
+from openxml_granulator import TableGranulator

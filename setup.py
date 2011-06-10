@@ -1,0 +1,37 @@
+from setuptools import setup, find_packages
+import os
+
+version = '0.9.4'
+
+setup(name='nsi.granulate',
+      version=version,
+      description="Granulate Content",
+      long_description=open("README.txt").read() + "\n" +
+                       open(os.path.join("docs", "HISTORY.txt")).read(),
+      # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
+      classifiers=[
+        "Programming Language :: Python",
+        "Topic :: Software Development :: Libraries :: Python Modules",
+        ],
+      keywords='',
+      author='Ronaldo Amaral Santos / NSI - CEFETCampos',
+      author_email='ronaldinho.as@gmail.com',
+      dependency_links=['http://newton.iff.edu.br/pypi'],
+      url='http://newton.iff.edu.br/pypi',
+      license='GPL',
+      packages=find_packages(exclude=['ez_setup']),
+      namespace_packages=['nsi'],
+      include_package_data=True,
+      zip_safe=False,
+      install_requires=[
+          'setuptools',
+          'pypdf2table',
+          'nsi.svgtool',
+          'openxmllib',
+          'plone.memoize',
+          'lxml'
+      ],
+      entry_points="""
+      # -*- Entry points: -*-
+      """,
+      )

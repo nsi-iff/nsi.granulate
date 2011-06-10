@@ -1,0 +1,3 @@
+prune nsi/granulate/tests/
+recursive-include docs *.txt *.html
+
