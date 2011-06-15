@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.10.0 - Release
+-------------
+* Adicionada nova politica de segmentação. Retirada a dependência do gst e adicionado o opencv
+
 0.9 - Release
 -------------
 * Caching de arquivos convertidos adicionado 

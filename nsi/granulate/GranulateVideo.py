@@ -32,13 +32,9 @@ __author__ = """Fábio Duncan de Souza<fduncan@cefetcampos.br>"""
 __docformat__ = 'plaintext'
 
 import os
-import pygst
-import gst
 import tempfile
 from StringIO import StringIO
-from videoDecode import VideoDecode
-from shotVideo import ShotVideo
-
+from shotVideo import ShotVideo, InitExtract
 from GranularUtils import Grain
 
 class Temporary(object):
@@ -61,6 +57,8 @@ class Temporary(object):
 
 class GranulateVideo(object):
 
+
+
     def __init__(self, video_file, **args):
         """
         """
@@ -79,17 +77,12 @@ class GranulateVideo(object):
             self.sensitivityPercent = 0.3
 
     def findTransition(self):
-        videoDecode = VideoDecode(self.temporaryPath)
+        initExtract = InitExtract()
         shotVideo = ShotVideo()
-        sensitivity = shotVideo.calculateSensitivity( self.sensitivityPercent, videoDecode.sliceVideoBlock()[0])
-        listImage = []
-        listShot = []
-        while videoDecode.frameBuffer:
-            listImage = videoDecode.sliceVideoBlock(100)
-            if (len(listImage) > 0):
-                listShot = shotVideo.shotDetect( listImage, listShot, sensitivity )       
-        self.temporaryFileSystem.removeDirectory()
-        return listShot
+        video_loaded = initExtract.createCapture(self.temporaryPath)
+        sensitivity = 0.295
+        list_transition = shotVideo.shotDetect(video_loaded, sensitivity)
+        return list_transition
 
     def granulate(self):
         """
@@ -102,7 +95,7 @@ class GranulateVideo(object):
             i+=1
             filename="shot"+str(i)+".jpg"
             content = StringIO()
-            img.save(content,"JPEG")
+            img.save("im" + str(i) + "jpeg" ,"JPEG")
             obj = Grain(id=filename, content=content, graintype='image')
             returnList.append(obj)
         returnDict['image_list']=returnList
