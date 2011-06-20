@@ -9,8 +9,7 @@ Requirements
 - python-imaging
 - pypdf2table
 - evince-thumbnailer(evince)
-- pygst
-- gst
+- python-opencv(apt-get install python-opencv)
 
 Installation
 ============

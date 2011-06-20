@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.10.1 - Release
+-------------
+* Corrigido o bug com imagens retornadas vazias pelo processo de granularização
+
 0.10.0 - Release
 -------------
 * Adicionada nova politica de segmentação. Retirada a dependência do gst e adicionado o opencv

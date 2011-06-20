@@ -93,9 +93,9 @@ class GranulateVideo(object):
         i = 0
         for img in imageList:
             i+=1
-            filename="shot"+str(i)+".jpg"
+            filename="shot" + str(i) + ".png"
             content = StringIO()
-            img.save("im" + str(i) + "jpeg" ,"JPEG")
+            img.save(content, "PNG")
             obj = Grain(id=filename, content=content, graintype='image')
             returnList.append(obj)
         returnDict['image_list']=returnList

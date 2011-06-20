@@ -7,7 +7,6 @@ from FileUtils import File
 from SVGUtils import PrepareSVG
 from GranulateSVG import GranulateSVG
 from GranulateVideo import GranulateVideo
-from videoDecode import VideoDecode
 from shotVideo import ShotVideo
 from SvgExtractRegion import SvgExtractRegion
 from GranulateOpenXML import GranulateOpenXML
