@@ -1,7 +1,10 @@
 #!/usr/bin/env python
 #-*- coding: utf-8 -*-
 
-import Image
+try:
+    import Image
+except ImportError:
+    import PIL.Image
 from imageManipulation import ImageManipulation
 
 
