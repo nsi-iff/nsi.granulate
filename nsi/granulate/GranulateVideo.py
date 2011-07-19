@@ -36,8 +36,11 @@ import tempfile
 from StringIO import StringIO
 from shotVideo import ShotVideo, InitExtract
 from GranularUtils import Grain
+import shutil
+
 
 class Temporary(object):
+
     
     def __init__(self, videoFileName):
         self.videoFile = videoFileName
@@ -49,11 +52,11 @@ class Temporary(object):
     
     def createFile(self, dataFile):
         open(self.filePath, "w+").write(dataFile.getvalue())
-        
+
     def removeDirectory(self):
         os.remove(self.filePath)
         os.removedirs(self.tempdir)
-
+       
 
 class GranulateVideo(object):
 
@@ -68,7 +71,7 @@ class GranulateVideo(object):
         
     def refresh(self, **args):
         self.temporaryFileSystem = Temporary(self.file.getFilename())
-        self.temporaryPath = self.temporaryFileSystem.createDirectory()
+        self.temporaryPathVideo = self.temporaryFileSystem.createDirectory()
         self.temporaryFileSystem.createFile(self.file.getData())
         
         if args.get('sensitivity'):
@@ -79,28 +82,51 @@ class GranulateVideo(object):
     def findTransition(self):
         initExtract = InitExtract()
         shotVideo = ShotVideo()
-        video_loaded = initExtract.createCapture(self.temporaryPath)
-        sensitivity = 0.295
-        list_transition = shotVideo.shotDetect(video_loaded, sensitivity)
-        return list_transition
+        import pdb; pdb.set_trace()
+        video_loaded = initExtract.createCapture(self.temporaryPathVideo)
+        list_transition, list_time = shotVideo.shotDetect(video_loaded, self.sensitivityPercent)
+        return list_transition, list_time
+
+    def cut_video(self, list_time):
+        self.temporaryPathGrain = tempfile.mkdtemp(prefix="temporaryGrainDirectory")
+        for i in range(len(list_time) - 1):
+            init = list_time[i]
+            duration = list_time[i + 1] - init - 0.2
+            os.system("ffmpeg -i "+str(self.temporaryPathVideo) + " -ss "+ str(init) + " -t "+ str(duration)+ " " + self.temporaryPathGrain + "/video" +str(i)+".ogg")
 
     def granulate(self):
         """
         """
         returnDict = {}
+        imageList, timeList = self.findTransition()
+        self.cut_video(timeList)
+        return_list_image = self.create_image_grains_list(imageList)
+        return_list_video = self.create_video_grains_list()
+        returnDict['image_list']=return_list_image
+        returnDict['file_list']=return_list_video
+        self.temporaryFileSystem.removeDirectory()
+        shutil.rmtree(self.temporaryPathGrain)
+        return returnDict
+
+    def create_image_grains_list(self, imageList):
         returnList = []
-        imageList = self.findTransition()
-        i = 0
-        for img in imageList:
-            i+=1
-            filename="shot" + str(i) + ".png"
+        for i, img in enumerate(imageList):
+            filename="shot"+str(i)+".png"
             content = StringIO()
-            img.save(content, "PNG")
+            img.save(content,"PNG")
             obj = Grain(id=filename, content=content, graintype='image')
             returnList.append(obj)
-        returnDict['image_list']=returnList
-        return returnDict
-        
+        return returnList
+
+    def create_video_grains_list(self):
+        returnList = []
+        for i, video in enumerate(os.listdir(self.temporaryPathGrain)):
+            filename="video_grain"+str(i)+".ogv"
+            content = StringIO(open(self.temporaryPathGrain + "/" + video).read())
+            obj = Grain(id=filename, content=content, graintype='nsifile')
+            returnList.append(obj)
+        return returnList        
+
     def ungranulate(self, **args):
         self.refresh(**args)
 

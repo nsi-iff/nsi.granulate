@@ -45,9 +45,11 @@ class ShotVideo(object):
         return frameA, frameB, frameC
 
     def shotDetect(self, video_loaded, sensitivity):
+        list_time = []
         list_trasitions = []
         histogramPolitic = HistogramPolitic()
         imageManipulation = ImageManipulation()
+        fps = cvGetCaptureProperty(video_loaded, CV_CAP_PROP_FPS)
         frameA, frameB, frameC = self.passFrame(video_loaded)
         vet_img = self.initLoadFrames(frameA, frameB)
         frameA_histogram = imageManipulation.createHistogramBoxes(vet_img, 0)
@@ -60,12 +62,13 @@ class ShotVideo(object):
             frameB_histogram, frameC_histogram, limiar) and\
             (self.number_frame - self.lastSaved) > 20:
                 list_trasitions.append(vet_img[1])
+                list_time.append(self.number_frame/fps)
             frameA, frameB, frameC = self.atualizeVar(frameA, frameB, frameC, \
              video_loaded)
             frameA_histogram = frameB_histogram
             frameB_histogram = frameC_histogram
             self.number_frame += 1
-        return list_trasitions
+        return list_trasitions, list_time
 
     def atualizeVar(self, frameA, frameB, frameC, video_loaded):
         frameA = cvCloneImage(frameB)
