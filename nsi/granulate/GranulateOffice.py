@@ -306,6 +306,7 @@ class GranulateOffice(object):
             new_table.write(template_str)
             template_odt = zipfile.PyZipFile(new_table,'a')
             doc = parseString(template_odt.read('content.xml'))
+            template_odt.close()
             office_text=doc.getElementsByTagName('office:text')
             office_text=office_text[0]
 
@@ -320,7 +321,10 @@ class GranulateOffice(object):
                     office_automatic_styles.appendChild(doc.importNode(sty,True))
             if imgHrefs:
                 for image in imgHrefs:
+                    template_odt = zipfile.PyZipFile(new_table,'a')
                     template_odt.writestr(str(image),self.__zipFile.read(image))
+                    template_odt.close()
+            template_odt = zipfile.PyZipFile(new_table,'a')
             template_odt.writestr('content.xml',doc.toxml().encode('utf-8'))
             template_odt.close()
             if table_name:
