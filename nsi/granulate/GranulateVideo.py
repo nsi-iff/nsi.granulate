@@ -82,7 +82,6 @@ class GranulateVideo(object):
     def findTransition(self):
         initExtract = InitExtract()
         shotVideo = ShotVideo()
-        import pdb; pdb.set_trace()
         video_loaded = initExtract.createCapture(self.temporaryPathVideo)
         list_transition, list_time = shotVideo.shotDetect(video_loaded, self.sensitivityPercent)
         return list_transition, list_time
@@ -120,7 +119,9 @@ class GranulateVideo(object):
 
     def create_video_grains_list(self):
         returnList = []
-        for i, video in enumerate(os.listdir(self.temporaryPathGrain)):
+        video_grains_path = os.listdir(self.temporaryPathGrain)
+        video_grains_path.sort()
+        for i, video in enumerate(video_grains_path):
             filename="video_grain"+str(i)+".ogv"
             content = StringIO(open(self.temporaryPathGrain + "/" + video).read())
             obj = Grain(id=filename, content=content, graintype='nsifile')

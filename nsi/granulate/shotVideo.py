@@ -45,7 +45,7 @@ class ShotVideo(object):
         return frameA, frameB, frameC
 
     def shotDetect(self, video_loaded, sensitivity):
-        list_time = []
+        list_time = [0]
         list_trasitions = []
         histogramPolitic = HistogramPolitic()
         imageManipulation = ImageManipulation()
@@ -60,14 +60,16 @@ class ShotVideo(object):
             frameC_histogram = imageManipulation.createHistogramBoxes(vet_img, 2)
             if histogramPolitic.verifyTransition(frameA_histogram,
             frameB_histogram, frameC_histogram, limiar) and\
-            (self.number_frame - self.lastSaved) > 20:
+            (self.number_frame - self.lastSaved) > 30:
                 list_trasitions.append(vet_img[1])
                 list_time.append(self.number_frame/fps)
+                self.lastSaved = self.number_frame
             frameA, frameB, frameC = self.atualizeVar(frameA, frameB, frameC, \
              video_loaded)
             frameA_histogram = frameB_histogram
             frameB_histogram = frameC_histogram
             self.number_frame += 1
+        list_time.append(self.number_frame/fps)
         return list_trasitions, list_time
 
     def atualizeVar(self, frameA, frameB, frameC, video_loaded):
