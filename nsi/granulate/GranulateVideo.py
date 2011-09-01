@@ -124,6 +124,8 @@ class GranulateVideo(object):
         for i, video in enumerate(video_grains_path):
             filename="video_grain"+str(i)+".ogv"
             content = StringIO(open(self.temporaryPathGrain + "/" + video).read())
+            content.name = filename
+            content.filename = filename
             obj = Grain(id=filename, content=content, graintype='nsifile')
             returnList.append(obj)
         return returnList        
