@@ -52,6 +52,7 @@ class ShotVideo(object):
         fps = cvGetCaptureProperty(video_loaded, CV_CAP_PROP_FPS)
         frameA, frameB, frameC = self.passFrame(video_loaded)
         vet_img = self.initLoadFrames(frameA, frameB)
+        list_trasitions = [vet_img[1]]
         frameA_histogram = imageManipulation.createHistogramBoxes(vet_img, 0)
         frameB_histogram = imageManipulation.createHistogramBoxes(vet_img, 1)
         limiar = histogramPolitic.calculateSensitivity(sensitivity, vet_img[0])
