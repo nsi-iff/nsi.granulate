@@ -91,7 +91,7 @@ class GranulateVideo(object):
         for i in range(len(list_time) - 1):
             init = list_time[i]
             duration = list_time[i + 1] - init - 0.2
-            os.system("ffmpeg -i "+str(self.temporaryPathVideo) + " -ss "+ str(init) + " -t "+ str(duration)+ " " + self.temporaryPathGrain + "/video" +str(i)+".ogg")
+            os.system("ffmpeg -i "+str(self.temporaryPathVideo) + " -acodec libvorbis -vcodec libtheora -ss "+ str(init) + " -t "+ str(duration)+ " " + self.temporaryPathGrain + "/video" +str(i)+".ogg")
 
     def granulate(self):
         """
