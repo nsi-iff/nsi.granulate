@@ -114,6 +114,7 @@ class GranulateVideo(object):
             content = StringIO()
             img.save(content,"PNG")
             obj = Grain(id=filename, content=content, graintype='image')
+            obj.description = str(timeList[i])
             returnList.append(obj)
         return returnList
 
