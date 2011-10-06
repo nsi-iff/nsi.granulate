@@ -99,7 +99,7 @@ class GranulateVideo(object):
         returnDict = {}
         imageList, timeList = self.findTransition()
         self.cut_video(timeList)
-        return_list_image = self.create_image_grains_list(imageList)
+        return_list_image = self.create_image_grains_list(imageList, timelist)
         return_list_video = self.create_video_grains_list()
         returnDict['image_list']=return_list_image
         returnDict['file_list']=return_list_video
@@ -107,7 +107,7 @@ class GranulateVideo(object):
         shutil.rmtree(self.temporaryPathGrain)
         return returnDict
 
-    def create_image_grains_list(self, imageList):
+    def create_image_grains_list(self, imageList, timeList):
         returnList = []
         for i, img in enumerate(imageList):
             filename="shot"+str(i)+".png"
