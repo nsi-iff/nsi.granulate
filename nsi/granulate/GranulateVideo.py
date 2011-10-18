@@ -41,22 +41,22 @@ import shutil
 
 class Temporary(object):
 
-    
+
     def __init__(self, videoFileName):
         self.videoFile = videoFileName
-        
+
     def createDirectory(self):
         self.tempdir = tempfile.mkdtemp(prefix="temporaryVideoDirectory")
         self.filePath = os.path.join(self.tempdir, self.videoFile)
         return self.filePath
-    
+
     def createFile(self, dataFile):
         open(self.filePath, "w+").write(dataFile.getvalue())
 
     def removeDirectory(self):
         os.remove(self.filePath)
         os.removedirs(self.tempdir)
-       
+
 
 class GranulateVideo(object):
 
@@ -67,13 +67,13 @@ class GranulateVideo(object):
         """
         self.file = video_file
         self.refresh(**args)
-        
-        
+
+
     def refresh(self, **args):
         self.temporaryFileSystem = Temporary(self.file.getFilename())
         self.temporaryPathVideo = self.temporaryFileSystem.createDirectory()
         self.temporaryFileSystem.createFile(self.file.getData())
-        
+
         if args.get('sensitivity'):
             self.sensitivityPercent = args['sensitivity']
         else:
@@ -99,7 +99,7 @@ class GranulateVideo(object):
         returnDict = {}
         imageList, timeList = self.findTransition()
         self.cut_video(timeList)
-        return_list_image = self.create_image_grains_list(imageList, timelist)
+        return_list_image = self.create_image_grains_list(imageList, timeList)
         return_list_video = self.create_video_grains_list()
         returnDict['image_list']=return_list_image
         returnDict['file_list']=return_list_video
@@ -129,7 +129,7 @@ class GranulateVideo(object):
             content.filename = filename
             obj = Grain(id=filename, content=content, graintype='nsifile')
             returnList.append(obj)
-        return returnList        
+        return returnList
 
     def ungranulate(self, **args):
         self.refresh(**args)
