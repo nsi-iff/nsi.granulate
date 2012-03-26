@@ -43,7 +43,10 @@ import zipfile, base64, re
 import os, sys, time, random
 import shutil
 
-import PIL.Image
+try:
+    import Image
+except ImportError:
+    import PIL.Image
 import commands
 #import config
 import mimetypes

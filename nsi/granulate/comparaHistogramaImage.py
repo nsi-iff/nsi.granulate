@@ -33,7 +33,10 @@ __author__ = """Ronaldo Amaral Santos<ronaldinho.as@gmail.com>
                 Fabio Duncan de Souza<fduncan@cefetcampos.br>"""
 __docformat__ = 'plaintext'
 
-import PIL.Image
+try:
+    import Image
+except ImportError:
+    import PIL.Image
 import os
 
 class imageOperations(object):
@@ -50,7 +53,10 @@ def comparaImage(path):
     images = os.listdir(path)
     for image in images:
         try:
-            img = PIL.Image.open(os.path.join(path,image))
+            try:
+                img = Image.open(os.path.join(path,image))
+            except ImportError:
+                img = PIL.Image.open(os.path.join(path,image))
             imageList.append({'filename':image,'objImage':img,'flag':False})
         except IOError:
             pass        

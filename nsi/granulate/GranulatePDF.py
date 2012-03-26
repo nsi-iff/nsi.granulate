@@ -36,7 +36,10 @@ from StringIO import StringIO
 from GranularUtils import Grain
 
 import os, sys, time, random, shutil
-import PIL.Image
+try:
+    import Image
+except ImportError:
+    import PIL.Image
 import mimetypes
 
 from pypdf2table import ExecuteConverter
