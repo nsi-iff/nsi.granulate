@@ -102,7 +102,7 @@ class GranulateOffice(object):
         self.Document = Document
         self.__ooodServer = ooodServer
         self.refresh()
-        
+
     def refresh(self, **args):
         if self.Document.getContentType() in self.supportedConvertionMimeTypes:
             # converts the file and stores in the Document object
@@ -127,8 +127,8 @@ class GranulateOffice(object):
         """
         try:
             if self.__ooodServer is None:
-                raise ConectionServerError, "It was not possible to connect. oood Server not found "                            
-            return ServerProxy(self.__ooodServer)    
+                raise ConectionServerError, "It was not possible to connect. oood Server not found "
+            return ServerProxy(self.__ooodServer)
         except:
             raise ConectionServerError, "It was not possible to connect to the Convertion Server."
 
@@ -436,12 +436,14 @@ class GranulateOffice(object):
 
     def granulate(self):
         """
-            Extract the grains from a document, returning a dictionary with a list of tables and a list of images
+            Extract the grains from a document, returning a dictionary with a list of tables, a list of images
+            and the file's thumbnail
         """
         returnfiles = {}
         if self.__zipFile is not None:
             returnfiles['image_list'] = self.__getImageDocumentList()
             returnfiles['file_list'] = self.__getTableDocumentList()
+            returnfiles['thumbnail'] = self.__getThumbnailsDocument()
 
         return returnfiles
 
