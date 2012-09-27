@@ -33,6 +33,8 @@ __docformat__ = 'plaintext'
 
 from GranularUtils import Grain
 from FileUtils import File
+import os
+import commands
 from GranulateOffice import GranulateOffice
 from GranulatePDF import GranulatePDF
 from GranulateSVG import GranulateSVG
@@ -77,7 +79,7 @@ class Granulate(object):
     supportedVideoMimetypes=('video/mpeg', #mpeg
                              'video/mp4', #mp4
                              'video/ogg', #ogv
-                             'video/x-theora+ogg', #ogm
+                             'video/x-theora+ogg', #ogg
                              'video/x-msvideo', #avi
                              'video/x-flv', ) #flv
 
@@ -92,6 +94,11 @@ class Granulate(object):
         granulate_office = GranulateOffice(document, self.ooodServer)
         return granulate_office
 
+    def __get_mimetype(self, _file):
+        path = os.path.join(os.getcwd(), _file.filename)
+        return commands.getoutput('mimetype ' + path).split(':')[-1][1:]
+
+
     @ram.cache(cachekey)
     def __process(self, filename=None, data=None, **args):
         """
@@ -100,21 +107,22 @@ class Granulate(object):
         if filename and data:
             # create instance FileUtils
             Document = File(filename=filename, data=data)
+            mimetype = self.__get_mimetype(Document)
 
-            if Document.getContentType() in self.supportedOfficeDocument:
+            if mimetype in self.supportedOfficeDocument:
                 return self.__createGranulateOffice(Document)
 
 
-            elif Document.getContentType() == 'application/pdf':
+            elif mimetype == 'application/pdf':
                 return GranulatePDF(Document)
 
-            elif Document.getContentType() == 'image/svg+xml':
+            elif mimetype == 'image/svg+xml':
                 # Verifica se foi passado os parametros para Extração de Regiao
                 if args.has_key("x") and args.has_key("y") and args.has_key("w") and args.has_key("h"):
                     return SvgExtractRegion(Document, **args)
                 return GranulateSVG(Document(), **args)
 
-            elif Document.getContentType() in self.supportedVideoMimetypes:
+            elif mimetype in self.supportedVideoMimetypes:
                 return GranulateVideo(Document, **args)
 
             elif Document.getFilename()[-5:] in ('.docx', '.pptx'):
