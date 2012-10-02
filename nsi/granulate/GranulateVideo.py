@@ -49,7 +49,7 @@ class Temporary(object):
         self.filePath = os.path.join(self.tempdir, self.videoFile)
         return self.filePath
 
- 
+
     def createFile(self, dataFile):
         open(self.filePath, "w+").write(dataFile.getvalue())
 
@@ -88,7 +88,6 @@ class GranulateVideo(object):
     def get_image_list(self):
         image_list = []
         time_list = []
-        print self.image_path
         for image in os.listdir(self.image_path):
             image_list.append(Image.open(self.image_path + '/' + image))
             time_list.append(self.get_transition_time(image))

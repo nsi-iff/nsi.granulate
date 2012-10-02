@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.10.2'
+version = '1.0.0'
 
 setup(name='nsi.granulate',
       version=version,
@@ -30,7 +30,8 @@ setup(name='nsi.granulate',
           'nsi.svgtool',
           'openxmllib',
           'plone.memoize',
-          'lxml'
+          'lxml',
+          'videoShot'
       ],
       entry_points="""
       # -*- Entry points: -*-
