@@ -73,6 +73,8 @@ class GranulateVideo(object):
         self.temporaryFileSystem.createFile(self.file.getData())
         self.image_path = self.temporaryFileSystem.tempdir + '/segmentation_video/transitions_video'
         self.temporaryPathGrain = self.temporaryFileSystem.tempdir + '/segmentation_video/parts_videos'
+        self.audio_path = self.temporaryFileSystem.tempdir + '/segmentation_video/video_audio/audio_video.oga'
+        self.converted_video_path = self.temporaryFileSystem.tempdir + '/video_converted.ogg'
 
         if args.get('sensitivity'):
             self.sensitivityPercent = args['sensitivity']
@@ -103,6 +105,8 @@ class GranulateVideo(object):
         return_list_video = self.create_video_grains_list()
         returnDict['image_list']=return_list_image
         returnDict['file_list']=return_list_video
+        returnDict['audio'] = self.create_audio_grain()
+        returnDict['converted_video'] = self.create_converted_video()
         self.temporaryFileSystem.removeDirectory()
         return returnDict
 
@@ -129,6 +133,25 @@ class GranulateVideo(object):
             obj = Grain(id=filename, content=content, graintype='nsifile')
             returnList.append(obj)
         return returnList
+
+    def create_audio_grain(self):
+        filename = 'audio_video.oga'
+        content = StringIO(open(self.audio_path).read())
+        content.name = filename
+        content.filename = filename
+        obj = Grain(id=filename, content=content, graintype='nsifile')
+        return obj
+
+    def create_converted_video(self):
+        filename = 'audio_video.oga'
+        if os.path.exists(self.converted_video_path):
+            content = StringIO(open(self.converted_video_path).read())
+            content.filename = filename
+            content.name = filename
+            obj = Grain(id=filename, content=content, graintype='nsifile')
+        else:
+            raise Exception("Converted video not found.")
+        return obj
 
     def ungranulate(self, **args):
         self.refresh(**args)
