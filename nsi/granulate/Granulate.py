@@ -98,8 +98,6 @@ class Granulate(object):
         path = os.path.join(os.getcwd(), _file.filename)
         return commands.getoutput('mimetype ' + path).split(':')[-1][1:]
 
-
-    @ram.cache(cachekey)
     def __process(self, filename=None, data=None, **args):
         """
             Checks the file type and creates the proper object.
