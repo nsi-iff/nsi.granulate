@@ -45,7 +45,7 @@ class Temporary(object):
         self.videoFile = videoFileName
 
     def createDirectory(self):
-        self.tempdir = tempfile.mkdtemp(prefix="temporaryVideoDirectory")
+        self.tempdir = tempfile.mkdtemp(prefix="VideoGranulateTemporaryDirectory")
         self.filePath = os.path.join(self.tempdir, self.videoFile)
         return self.filePath
 
@@ -74,7 +74,8 @@ class GranulateVideo(object):
         self.image_path = self.temporaryFileSystem.tempdir + '/segmentation_video/transitions_video'
         self.temporaryPathGrain = self.temporaryFileSystem.tempdir + '/segmentation_video/parts_videos'
         self.audio_path = self.temporaryFileSystem.tempdir + '/segmentation_video/video_audio/audio_video.oga'
-        self.converted_video_path = self.temporaryFileSystem.tempdir + '/video_converted.ogg'
+        self.converted_video_path = self.temporaryFileSystem.tempdir + '/segmentation_video/video_converted/video_converted.ogg'
+        self.thumbnails_path = self.temporaryFileSystem.tempdir + '/segmentation_video/thumbnails'
 
         if args.get('sensitivity'):
             self.sensitivityPercent = args['sensitivity']
@@ -107,6 +108,7 @@ class GranulateVideo(object):
         returnDict['file_list']=return_list_video
         returnDict['audio'] = self.create_audio_grain()
         returnDict['converted_video'] = self.create_converted_video()
+        returnDict['thumbnails'] = self.create_video_thumbnail_list()
         self.temporaryFileSystem.removeDirectory()
         return returnDict
 
@@ -134,6 +136,19 @@ class GranulateVideo(object):
             returnList.append(obj)
         return returnList
 
+    def create_video_thumbnail_list(self):
+        returnList = []
+        video_thumbnail_path = os.listdir(self.thumbnails_path)
+        video_thumbnail_path.sort()
+        for i, thumbnail in enumerate(video_thumbnail_path):
+            filename = self.thumbnails_path + "/" + thumbnail
+            content = StringIO(open(filename).read())
+            content.name = filename
+            content.filename = filename
+            obj = Grain(id=filename, content=content, graintype='nsifile')
+            returnList.append(obj)
+        return returnList
+
     def create_audio_grain(self):
         filename = 'audio_video.oga'
         content = StringIO(open(self.audio_path).read())
@@ -143,14 +158,13 @@ class GranulateVideo(object):
         return obj
 
     def create_converted_video(self):
-        filename = 'audio_video.oga'
+        filename = 'converted_video.oga'
+        obj = None
         if os.path.exists(self.converted_video_path):
             content = StringIO(open(self.converted_video_path).read())
             content.filename = filename
             content.name = filename
             obj = Grain(id=filename, content=content, graintype='nsifile')
-        else:
-            raise Exception("Converted video not found.")
         return obj
 
     def ungranulate(self, **args):
