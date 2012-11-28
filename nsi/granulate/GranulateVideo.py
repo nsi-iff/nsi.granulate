@@ -150,11 +150,13 @@ class GranulateVideo(object):
         return returnList
 
     def create_audio_grain(self):
+        obj = None
         filename = 'audio_video.oga'
-        content = StringIO(open(self.audio_path).read())
-        content.name = filename
-        content.filename = filename
-        obj = Grain(id=filename, content=content, graintype='nsifile')
+        if os.path.exists(self.audio_path):
+            content = StringIO(open(self.audio_path).read())
+            content.name = filename
+            content.filename = filename
+            obj = Grain(id=filename, content=content, graintype='nsifile')
         return obj
 
     def create_converted_video(self):
