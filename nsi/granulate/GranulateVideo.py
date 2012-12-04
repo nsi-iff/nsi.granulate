@@ -91,7 +91,9 @@ class GranulateVideo(object):
     def get_image_list(self):
         image_list = []
         time_list = []
-        for image in os.listdir(self.image_path):
+        sort_list = os.listdir(self.image_path)
+        sort_list.sort()
+        for image in sort_list:
             image_list.append(Image.open(self.image_path + '/' + image))
             time_list.append(self.get_transition_time(image))
         return image_list, time_list
