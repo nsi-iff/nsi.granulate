@@ -74,7 +74,7 @@ class GranulateVideo(object):
         self.image_path = self.temporaryFileSystem.tempdir + '/segmentation_video/transitions_video'
         self.temporaryPathGrain = self.temporaryFileSystem.tempdir + '/segmentation_video/parts_videos'
         self.audio_path = self.temporaryFileSystem.tempdir + '/segmentation_video/video_audio/audio_video.oga'
-        self.converted_video_path = self.temporaryFileSystem.tempdir + '/segmentation_video/video_converted/video_converted.ogg'
+        self.converted_video_path = self.temporaryFileSystem.tempdir + os.listdir(self.temporaryFileSystem.tempdir)[0]
         self.thumbnails_path = self.temporaryFileSystem.tempdir + '/segmentation_video/thumbnails'
 
         if args.get('sensitivity'):
