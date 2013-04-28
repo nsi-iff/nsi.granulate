@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.0.0'
+version = '1.0.1'
 
 setup(name='nsi.granulate',
       version=version,
@@ -16,8 +16,6 @@ setup(name='nsi.granulate',
       keywords='',
       author='Ronaldo Amaral Santos / NSI - CEFETCampos',
       author_email='ronaldinho.as@gmail.com',
-      dependency_links=['http://newton.iff.edu.br/pypi'],
-      url='http://newton.iff.edu.br/pypi',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['nsi'],
