@@ -74,7 +74,7 @@ class GranulateVideo(object):
         self.image_path = self.temporaryFileSystem.tempdir + '/segmentation_video/transitions_video'
         self.temporaryPathGrain = self.temporaryFileSystem.tempdir + '/segmentation_video/parts_videos'
         self.audio_path = self.temporaryFileSystem.tempdir + '/segmentation_video/video_audio/audio_video.oga'
-        self.converted_video_path = self.temporaryFileSystem.tempdir + os.listdir(self.temporaryFileSystem.tempdir)[0]
+        self.converted_video_path = self.temporaryFileSystem.tempdir + '/segmentation_video/video_converted/'
         self.thumbnails_path = self.temporaryFileSystem.tempdir + '/segmentation_video/thumbnails'
 
         if args.get('sensitivity'):
@@ -162,7 +162,8 @@ class GranulateVideo(object):
         return obj
 
     def create_converted_video(self):
-        filename = 'converted_video.oga'
+        filename = os.listdir(self.converted_video_path)[0]
+        self.converted_video_path += filename
         obj = None
         if os.path.exists(self.converted_video_path):
             content = StringIO(open(self.converted_video_path).read())
@@ -173,4 +174,3 @@ class GranulateVideo(object):
 
     def ungranulate(self, **args):
         self.refresh(**args)
-
